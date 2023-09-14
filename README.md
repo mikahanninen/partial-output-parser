@@ -1,14 +1,10 @@
-# Template: Robot Framework - Minimal
+# Partial output parser
 
-This is the simplest template to start from.
+This repository contains a Python script that will read an incomplete `output.xml` file and extract the last keyword that has been run.
 
-- Get started from a simple task template in `tasks.robot`.
-  - Uses [Robot Framework](https://robocorp.com/docs/languages-and-frameworks/robot-framework/basics) syntax.
-- You can configure your robot `robot.yaml`.
-- You can configure dependencies in `conda.yaml`.
+By default, the script will try to read the file named `output.xml` but the environment variable `BROKEN_OUTPUT_FILE` can be given (without file extension .xml, for example. `BROKEN_OUTPUT_FILE=myoutput` would match `myoutput.xml`.
 
-## Learning materials
+The script also saves a fixed (valid) XML file as `output_fixed.xml` and generates a HTML log file `output_fixed.html` from that using `rebot`.
 
-- [Robocorp Developer Training Courses](https://robocorp.com/docs/courses)
-- [Documentation links on Robot Framework](https://robocorp.com/docs/languages-and-frameworks/robot-framework)
-- [Example bots in Robocorp Portal](https://robocorp.com/portal)
+The incomplete output.xml is something that appears at least in some RPA cases where execution gets stuck and the RFW run is terminated in some way or another and then log.html is not automatically generated.
+
